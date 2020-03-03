@@ -26,13 +26,28 @@ const App = () => {
     )
   }
 
+  const inputChangedHandler = (event) => {
+    setUserInputState(
+      {
+        users:[
+          {username: 'Bathalrus', inputcolor:'firebrick'},
+          {username: 'Corinnagur', inputcolor:'forestgreen'},
+          {username: event.target.value, inputcolor:'darkslateblue'}
+        ]
+      }
+    )
+  }
+
   return (
     <div className="App">
-      <UserInput></UserInput>
+      <UserInput changed={inputChangedHandler}></UserInput>
       <button onClick={switchInputStateHandler}>Switch Username and Input Color</button>
-      <div style={{backgroundColor: userInputState.users[0].inputcolor}}><UserOutput username={userInputState.users[0].username} inputcolor={userInputState.users[0].inputcolor}></UserOutput></div>
-      <div style={{backgroundColor: userInputState.users[1].inputcolor}}><UserOutput username={userInputState.users[1].username} inputcolor={userInputState.users[1].inputcolor}></UserOutput></div>
-      <div style={{backgroundColor: userInputState.users[2].inputcolor}}><UserOutput username={userInputState.users[2].username} inputcolor={userInputState.users[2].inputcolor}></UserOutput></div>
+      <div style={{backgroundColor: userInputState.users[0].inputcolor}}>
+        <UserOutput username={userInputState.users[0].username} inputcolor={userInputState.users[0].inputcolor}></UserOutput></div>
+      <div style={{backgroundColor: userInputState.users[1].inputcolor}}>
+        <UserOutput username={userInputState.users[1].username} inputcolor={userInputState.users[1].inputcolor}></UserOutput></div>
+      <div style={{backgroundColor: userInputState.users[2].inputcolor}}>
+        <UserOutput username={userInputState.users[2].username} inputcolor={userInputState.users[2].inputcolor}></UserOutput></div>
     </div>
   );
 }
