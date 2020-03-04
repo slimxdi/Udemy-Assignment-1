@@ -21,7 +21,7 @@ const App = () => {
         users:[
           {username: 'Arachnae', inputcolor:'red'},
           {username: 'Boringer', inputcolor:'green'},
-          {username: 'Carthule', inputcolor:'blue'}
+          {username: userInputState.users[2].username, inputcolor:'blue'}
         ]
       }
     ):
@@ -30,7 +30,7 @@ const App = () => {
         users:[
           {username: 'Arachnae', inputcolor:'pink'},
           {username: 'Boringer', inputcolor:'chartreuse'},
-          {username: 'Carthule', inputcolor:'aquamarine'}
+          {username: userInputState.users[2].username, inputcolor:'aquamarine'}
         ]
       }
     )
@@ -61,18 +61,23 @@ const App = () => {
   return (
     <div className="App">
       <UserInput changed={inputChangedHandler}></UserInput>
+      <br/>
       <button onClick={switchInputStateHandler}>Switch Username and Input Color</button>
-      <div style={{backgroundColor: userInputState.users[0].inputcolor}}>
+      <br/>
+      <div className="div-rgb"
+        style={{backgroundColor: userInputState.users[0].inputcolor}}>
         <UserOutput
           username={userInputState.users[0].username}
           inputcolor={userInputState.users[0].inputcolor}>
         </UserOutput></div>
-      <div style={{backgroundColor: userInputState.users[1].inputcolor}}>
+      <div className="div-rgb"
+        style={{backgroundColor: userInputState.users[1].inputcolor}}>
         <UserOutput
           username={userInputState.users[1].username}
           inputcolor={userInputState.users[1].inputcolor}>
         </UserOutput></div>
-      <div style={{backgroundColor: userInputState.users[2].inputcolor}}>
+      <div className="div-rgb"
+        style={{backgroundColor: userInputState.users[2].inputcolor}}>
         <UserOutput
           username={userInputState.users[2].username}
           inputcolor={userInputState.users[2].inputcolor}>
